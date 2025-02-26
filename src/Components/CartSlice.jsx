@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+//CART is like the universal object that is needed in every component
 const CartSlice = createSlice({
  name:'cart',
  initialState,
