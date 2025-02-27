@@ -22,9 +22,9 @@ const SuperCoin = () => {
     }, [points]);
     return (
         <>
-        <div className="super-coin">
+        <div className="super-coin" style={{textAlign:"center"}}>
             <h2 className="super-coin-title">Super Coin</h2>
-            <div>You earn {superCoin} with this purchase!</div>
+            <p>You earn {superCoin} with this purchase!</p>
 
         </div>
         </>
