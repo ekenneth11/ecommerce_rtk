@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 //CART is like the universal object that is needed in every component
+const initialState = {
+    cartItems: [],
+ };
 const CartSlice = createSlice({
  name:'cart',
  initialState,
@@ -32,9 +35,7 @@ const CartSlice = createSlice({
     }
  }
 });
-const initialState = {
-    cartItems: [],
- };
+
 
 export const {
     addItemsToCart,

@@ -5,7 +5,7 @@ import { removeItemFromCart, increaseitemQuantity, decreaseItemQuantity, clearCa
 const ShoppingCart = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.cartItems);
-  const totalAmount = cartItems((total, item) => total + item.price * item.quantity);
+  const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   //dispatch is like calling another method from another class
   const handleRemoveItem = (itemId) =>{
@@ -29,15 +29,15 @@ const ShoppingCart = () => {
           <li key={item.id} className='cart-item'>
           <span>{item.name} - ${item.price}</span>
           <div className='quantity-controls'>
-            <button className='quantity-control-btn' onClick={() => handleIncreaseQuantity}>+</button>
+            <button className='quantity-control-btn' onClick={() => handleIncreaseQuantity(item.id)}>+</button>
             <span>{item.quantity}</span>
-            <button className='quantity-control-btn' onClick={() => handleDecreaseQuantity}>-</button>
+            <button className='quantity-control-btn' onClick={() => handleDecreaseQuantity(item.id)}>-</button>
           </div>
-          <button className='remove-item-btn' onClick={() => handleRemoveItem}>Remove Item</button>
+          <button className='remove-item-btn' onClick={() => handleRemoveItem(item.id)}>Remove Item</button>
           </li>
         )}
       </ul>
-      <button className="clear-cart-btn" onClick={() => handleClearCart}>Clear Cart</button>
+      <button className="clear-cart-btn" onClick={handleClearCart}>Clear Cart</button>
     </div>
         <div>{totalAmount ? <div>The total amount is {totalAmount}</div>: ''}</div>
     </>

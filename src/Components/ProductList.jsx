@@ -24,7 +24,7 @@ const ProductList = () => {
       <ul className="product-list-items">
         {products.map(product => (
           <li key={product.id} className='product-list-items'>
-            <span>{product.name} - ${product.price}</span>
+            {product.name} - ${product.price}<span></span>
             <button 
               className={`add-to-cart-btn ${disabledProducts.includes(product.id) ? 'disabled': ''}`}
               onClick={() => handleAddToCart(product)}
